@@ -13,24 +13,23 @@ Find the greatest product of five consecutive digits in the 1000-digit number.
 (The large number below was copied from the above website.)
 -}
 
-module EulerProblems.Eight
-( result
-)
+module EulerProblems.Eight( result)
   where
-
   import Data.Char (digitToInt,isDigit)
   import Data.List (findIndices, transpose)
   import RubyMethods.EachCons (eachCons)
 
   findGreatestProduct :: String -> Int -> (Int, [Int], [[Int]])
-  findGreatestProduct string nConsecutiveDigits = (maxProduct, indices, maxDigits)
+  findGreatestProduct string nConsecutiveDigits = result
     where
     digits = map digitToInt string
     digitRuns = eachCons nConsecutiveDigits digits
     products = map product digitRuns
+
     maxProduct = maximum products
     indices = findIndices (==maxProduct) products
     maxDigits = map (digitRuns !!) indices
+    result = (maxProduct, indices, maxDigits)
 
   cleaner :: String -> String
   cleaner = filter isDigit
@@ -38,8 +37,8 @@ module EulerProblems.Eight
   result :: (Int, [Int], [[Int]])
   result = findGreatestProduct bigString nConsecutiveDigits
     where
-    nConsecutiveDigits = 5
     bigString = cleaner input
+    nConsecutiveDigits = 5
 
     input = input0 ++ input1 ++ input2 ++ input3 ++ input4 ++ input5 ++ input6 ++ input7 ++ input8 ++ input9 ++ input10 ++ input11 ++ input12 ++ input13 ++ input14 ++ input15 ++ input16 ++ input17 ++ input18 ++ input19
 
