@@ -13,7 +13,9 @@ Find the greatest product of five consecutive digits in the 1000-digit number.
 (The large number below was copied from the above website.)
 -}
 
-module EulerProblems.Eight (result)
+module EulerProblems.Eight
+( result
+)
   where
 
   import Data.Char (digitToInt,isDigit)
