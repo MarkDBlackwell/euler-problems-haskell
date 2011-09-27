@@ -17,7 +17,8 @@ module EulerProblems.Eight (result)
   where
 
   import Data.Char (digitToInt,isDigit)
-  import Data.List
+  import Data.List (findIndices, transpose)
+  import RubyMethods.EachCons (eachCons)
 
   findGreatestProduct :: String -> Int -> (Int, [Int], [[Int]])
   findGreatestProduct string nConsecutiveDigits = (maxProduct, indices, maxDigits)
